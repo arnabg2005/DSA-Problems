@@ -8,9 +8,7 @@ class Solution:
         'u': 6, 'v': 5, 'w': 4, 'x': 3, 'y': 2, 'z': 1
         }
         total = 0
-        count = 0
         for i in range(len(s)):
-            count += 1
-            total += values[s[i]] * count
+            total += values[s[i]] * (i + 1)
         return total
         
