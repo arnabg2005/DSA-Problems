@@ -11,21 +11,15 @@ class Solution(object):
                 square += digit * digit
                 n = n // 10
             return square
+        slow = n
+        fast = n
+        while fast != 1:
+            slow = square_fun(slow)
+            fast = square_fun(square_fun(fast))
 
-        ### 16     1
-
-        lst = []
-        while True: 
-            res = square_fun(n)
-            #print(f'res {res}')
-            if res == 1:
+            if fast == 1:
                 return True
-                break
-            else:
-                if res in lst:
-                    return False
-                    break
-                else:
-                    lst.append(res)
-                    n = res
-        #print(lst)
+            if slow == fast:
+                return False
+        return True
+        
